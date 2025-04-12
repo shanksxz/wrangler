@@ -14,12 +14,16 @@
  * the License.
  */
 
-
 package io.cdap.wrangler.api.parser;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+/**
+ * Token representing a byte size value with unit (e.g., 10K, 5M, 2G, 1T).
+ * Provides methods to convert between different byte units and retrieve
+ * the canonical value in bytes.
+ */
 public class ByteSize implements Token {
   private final long bytes;
 
@@ -27,7 +31,7 @@ public class ByteSize implements Token {
     this.bytes = convertToBytes(bytes);
   }
 
-  private long convertToBytes(String bytes){
+  private long convertToBytes(String bytes) {
     String unit = bytes.substring(bytes.length() - 1).toUpperCase();
     long value = Long.parseLong(bytes.substring(0, bytes.length() - 1));
     switch (unit) {
@@ -67,4 +71,21 @@ public class ByteSize implements Token {
   public long getBytes() {
     return bytes;
   }
+
+  public long getKilobytes() {
+    return bytes / 1024;
+  }
+
+  public long getMegabytes() {
+    return bytes / (1024 * 1024);
+  }
+
+  public long getGigabytes() {
+    return bytes / (1024 * 1024 * 1024);
+  }
+
+  public long getTerabytes() {
+    return bytes / (1024 * 1024 * 1024 * 1024);
+  }
+
 }
