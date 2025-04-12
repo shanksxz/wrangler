@@ -311,3 +311,23 @@ fragment Int
 fragment Digit
  : [0-9]
  ;
+
+fragment BYTE_UNIT
+ : [kKmMgGtT][bB]
+ ;
+
+fragment TIME_UNIT
+ : 'ms'
+ | 's'
+ | 'm'
+ | 'h'
+ | 'd'
+ ;
+
+BYTE_SIZE
+ : Number BYTE_UNIT
+ ;
+
+TIME_DURATION
+ : Number TIME_UNIT
+ ;
