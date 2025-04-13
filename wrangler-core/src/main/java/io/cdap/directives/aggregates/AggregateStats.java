@@ -14,7 +14,7 @@
  * the License.
  */
 
-package io.cdap.wrangler.directives.aggregates;
+package io.cdap.directives.aggregates;
 
 import io.cdap.wrangler.api.Arguments;
 import io.cdap.wrangler.api.Directive;
