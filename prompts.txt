@@ -1,0 +1,10 @@
+1. Explain how the Wrangler grammar and parser work together in CDAP.
+2. Help me write ANTLR4 grammar rules for byte size units like KB, MB, GB.
+3. How to implement an aggregation directive in CDAP Wrangler.
+4. What's the best way to accumulate values across rows in a data pipeline.
+5. Write unit tests for ByteSize parser with various input formats.
+6. Create comprehensive test cases for the aggregate-stats directive.
+7. How to test edge cases in byte size and time duration parsing.
+8. Write documentation for the parse-as-byte-size directive.
+9. Help format a markdown table for the directive documentation.
+10. How to regenerate ANTLR parser after grammar changes
