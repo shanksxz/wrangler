@@ -32,21 +32,30 @@ public class ByteSize implements Token {
   }
 
   private long convertToBytes(String bytes) {
-    String unit = bytes.substring(bytes.length() - 1).toUpperCase();
-    long value = Long.parseLong(bytes.substring(0, bytes.length() - 1));
-    switch (unit) {
+    String numericPart = bytes.replaceAll("[^0-9]", "");
+    String unitPart = bytes.replaceAll("[0-9]", "").toUpperCase();
+
+    if (numericPart.isEmpty()) {
+      throw new IllegalArgumentException("No numeric value found in: " + bytes);
+    }
+    long value = Long.parseLong(numericPart);
+    switch (unitPart) {
       case "B":
         return value;
       case "K":
+      case "KB":
         return value * 1024;
       case "M":
+      case "MB":
         return value * 1024 * 1024;
       case "G":
+      case "GB":
         return value * 1024 * 1024 * 1024;
       case "T":
+      case "TB":
         return value * 1024 * 1024 * 1024 * 1024;
       default:
-        throw new IllegalArgumentException("Invalid unit: " + unit);
+        throw new IllegalArgumentException("Invalid unit: " + unitPart);
     }
   }
 

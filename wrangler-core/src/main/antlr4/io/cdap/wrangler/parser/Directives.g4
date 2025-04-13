@@ -252,11 +252,9 @@ BackSlash: '\\';
 Dollar   : '$';
 Tilde    : '~';
 
-// Fragments for units
 fragment BYTE_UNIT: [KkMmGgTt][Bb]?;
 fragment TIME_UNIT: [Nn]?[Ss]|[Mm][Ss]|[Hh]|[Dd]|[Mm][Ii][Nn];
 
-// New token rules
 BYTE_SIZE: Number BYTE_UNIT;
 TIME_DURATION: Number TIME_UNIT;
 
